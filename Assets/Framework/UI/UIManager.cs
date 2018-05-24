@@ -20,7 +20,7 @@ public class UIManager : MonoSingleton<UIManager>
         _popupStack = new Stack<UIView>();
         _layerMap = new Dictionary<ViewType, Transform>();
         _viewMap = new Dictionary<UIName, UIView>();
-        
+
         _uiRoot = GameObject.Find("RootCanvas").transform;
     }
 
@@ -75,37 +75,37 @@ public class UIManager : MonoSingleton<UIManager>
     }
 
     /// <summary>
-    /// 显示一个UIView
+    /// 打开一个UIView
     /// </summary>
     /// <param name="name">UI名</param>
-    public void ShowView(UIName name)
+    public void OpenView(UIName name)
     {
         var view = GetView(name);
         if (view != null)
         {
-            ShowView(view);
+            OpenView(view);
         }
     }
 
     /// <summary>
-    /// 隐藏一个UIView
+    /// 关闭一个UIView
     /// </summary>
     /// <param name="name">UI名</param>
-    public void HideView(UIName name)
+    public void CloseView(UIName name)
     {
         var view = GetView(name);
         if (view != null)
         {
-            HideView(view);
+            CloseView(view);
         }
     }
 
     /// <summary>
-    /// 显示一个UIView，如果ViewType为Popup，则放入Popup栈管理，
+    /// 打开一个UIView，如果ViewType为Popup，则放入Popup栈管理，
     /// 如果ViewType为Normal，则清空Popup栈
     /// </summary>
     /// <param name="view">UIView</param>
-    public void ShowView(UIView view)
+    public void OpenView(UIView view)
     {
         if (view.viewType == ViewType.Popup)
         {
@@ -124,10 +124,10 @@ public class UIManager : MonoSingleton<UIManager>
     }
 
     /// <summary>
-    /// 隐藏一个UIView，如果ViewType为Popup，则该UIView必须要在栈顶
+    /// 关闭一个UIView，如果ViewType为Popup，则该UIView必须要在栈顶
     /// </summary>
     /// <param name="view"></param>
-    public void HideView(UIView view)
+    public void CloseView(UIView view)
     {
         if (view.viewType == ViewType.Popup)
         {
