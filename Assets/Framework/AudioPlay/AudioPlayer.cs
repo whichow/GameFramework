@@ -72,6 +72,12 @@ public class AudioPlayer : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
+    /// <summary>
+    /// 播放音频
+    /// </summary>
+    /// <param name="audio">音频片段</param>
+    /// <param name="loop">是否循环</param>
+    /// <param name="volum">声音大小</param>
     public void Play(AudioClip audio, bool loop = false, float volum = 1f)
     {
         _audioSource.clip = audio;
@@ -79,17 +85,26 @@ public class AudioPlayer : MonoBehaviour
         _audioSource.Play();
     }
 
-    private void Pause()
+    /// <summary>
+    /// 暂停播放
+    /// </summary>
+    public void Pause()
     {
         _audioSource.Pause();
     }
 
-    private void UnPause()
+    /// <summary>
+    /// 恢复播放
+    /// </summary>
+    public void UnPause()
     {
         _audioSource.UnPause();
     }
-
-    private void Stop()
+    
+    /// <summary>
+    /// 停止播放
+    /// </summary>
+    public void Stop()
     {
         _audioSource.Stop();
     }
